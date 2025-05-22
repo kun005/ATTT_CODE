@@ -34,7 +34,7 @@ else:
         print("Khong co khoa chung! ")
 
 #có thể dùng vòng lặp để tính toán
-#def modular_ex_iterative(a, b, m):
+#def modular_ex(a, b, m):
     #if m == 1:
        # return 0
     #res = 1
