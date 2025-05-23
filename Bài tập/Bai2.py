@@ -1,5 +1,8 @@
 #sử dụng hàm modular exponentiation để tính lũy thừa theo modulo tương tự như trong bài 4
 import math 
+import sys
+sys.path.insert(0, '.\TT\Chuong2')
+import TT3_C2
 
 def nto(n):
     if n < 2:
@@ -14,15 +17,6 @@ def ucln(a,b):
         return a
     else:
         return ucln(b, a % b)
- #Bình phương có lặp (a^b mod m)      
-def modular_ex(a, b, m):
-    if b == 0:
-        return 1
-    half = modular_ex(a, b // 2, m)
-    res = (half * half) % m
-    if b % 2 ==1:
-        res  = (res * a) % m
-    return res 
 
 p = int(input("Nhap so nguyen to p: "))
 q = int(input("Nhap so nguyen to q: "))
@@ -37,7 +31,7 @@ if e <= 1 or e >= phi or ucln(e, phi) != 1:
     print("Lỗi: Không thỏa mã điều kiện")
     exit()
     
-c = modular_ex(m, e, n)
+c = TT3_C2.modular_ex(m, e, n)
 print("Ket qua ma hoa c la:", c)
 
 
