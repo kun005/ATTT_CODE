@@ -7,7 +7,7 @@ def extended_gcd(a, b):
         x = y1
         y = x1 - (a // b) * y1
         return gcd, x, y
-def mod_inverse(a, b):
+def Invert_Fp(a, b):
     gcd, x, y = extended_gcd(a, b)
     if gcd != 1:
         raise ValueError("Nghịch đảo không tồn tại")

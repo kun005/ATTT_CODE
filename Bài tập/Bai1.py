@@ -49,7 +49,7 @@ phi = (p - 1) * (q - 1)
 if e <= 1 or e >= phi or UCLN(e, phi) != 1:
     print("Lỗi: Không thỏa mã điều kiện")
     exit()
-d = TT8_C1.mod_inverse(e, phi)
+d = TT8_C1.Invert_Fp(e, phi)
 
 print("Số nguyên n là:", n)
 print("Số mũ bí mật d là:", d)

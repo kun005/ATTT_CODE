@@ -1,4 +1,4 @@
-def bad_char_heuristic(p):
+def Chuoi_xau(p):
     bad_char = [-1]*256
     for i in range(len(p)):
         bad_char[ord(p[i])] = i
@@ -7,7 +7,7 @@ def bad_char_heuristic(p):
 def boyer_moore(t, p):
     m = len(p)
     n = len(t)
-    bad_char = bad_char_heuristic(p)
+    bad_char = Chuoi_xau(p)
     s = 0
     result = []
     while s <= n - m:
