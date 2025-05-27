@@ -1,7 +1,8 @@
+import random
 import sys
 sys.path.insert(0, './TT/Chuong2')
 import TT3_C2
-import random
+from random import randint
 
 def fermat(n,t):
     for i in range(t):

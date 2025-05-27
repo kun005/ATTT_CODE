@@ -1,12 +1,12 @@
 import sys 
 sys.path.insert(0, './TT/Chuong2')
-import Fermat
+import TT4_C2
 import random
 
 def tong(a, b, t):
     cout = 0
     for i in range(a, b + 1):
-        if Fermat.fermat(i, t) == "So nguyen to":
+        if TT4_C2.fermat(i, t) == "So nguyen to":
             cout += i
     return cout
 
