@@ -1,55 +1,39 @@
-def Nhap_so(W, t, ten_so):
-    MAX = 2**W
-    print(f"Nhập số {ten_so} gồm {t} từ:")
-    so = []
-    for i in range(t):
-        while True:
-            try:
-                val = int(input(f"{ten_so}[{i}] = "))
-                if 0 <= val < MAX:
-                    so.append(val)
-                    break
-                else:
-                    print(f"Giá trị phải trong khoảng [0, {MAX - 1}]")
-            except:
-                print("Vui lòng nhập số nguyên hợp lệ.")
-    return so
+import sys
+sys.path.insert(0, './TT/Chuong1')
+import TT8_C1
 
-def Cong_boi(a, b, W, t):
-    c_plus = [0]*t
-    e = 0
-    MAX = 2**W
-    for i in range(t-1, -1, -1):
-        c_plus[i] = a[i] + b[i] + e
-        if c_plus[i] >= MAX:
-            c_plus[i] -= MAX
-            e = 1
+def ecc_key(p, a, x1, y1, n):
+    def add_point(x1, y1, x2, y2):
+        if x1 == x2 and y1 == y2:
+            mau = 2 * y1 % p
+            if mau == 0:
+                raise ValueError("Lỗi: 2 * y1 is zero modulo p.")
+            return (3 * x1**2 + a) * TT8_C1.Invert_Fp(mau, p) % p
         else:
-            e = 0
-    return [e, c_plus]
+            mau = (x2 - x1) % p
+            if mau == 0:
+                raise ValueError("Lỗi: x2 - x1 is zero modulo p.")
+            return (y2 - y1) * TT8_C1.Invert_Fp(mau, p) % p
+    # khởi tạo điểm đầu tiên 
+    x2, y2 = x1, y1
+    for _ in range(n - 1):
+        y = add_point(x1, y1, x2, y2)
+        x3 = (y**2 - x1 - x2) % p
+        y3 = (y * (x1 - x3) - y1) % p
+        x2, y2 = x3, y3
 
-def Tru_boi(a, b, W, t):
-    c_hieu = [0]*t
-    e = 0
-    MAX = 2**W
-    for i in range(t-1, -1, -1):
-        c_hieu[i] = a[i] - b[i] - e
-        if c_hieu[i] < 0:
-            c_hieu[i] += MAX
-            e = 1
-        else:
-            e = 0
-    return [e, c_hieu]
+    return x2, y2
 
 if __name__ == "__main__":
-    W = int(input("Nhập độ dài từ W: "))
-    t = int(input("Nhập số lượng từ t: "))
+    p = int(input("Enter p: "))
+    a = int(input("Enter a: "))
+    b = int(input("Enter b: "))
+    x = int(input("Enter x: "))
+    y = int(input("Enter y: "))
+    n = int(input("Enter n: "))
 
-    a = Nhap_so(W, t, "a")
-    b = Nhap_so(W, t, "b")
-
-    e, kq_cong = Cong_boi(a, b, W, t)
-    print("Kết quả cộng: {kq_cong}, e = {e_cong}")
-
-    e, kq_tru = Tru_boi(a, b, W, t)
-    print("Kết quả trừ: {kq_tru}, e = {e_tru}")
+    try:
+        result = ecc_key(p, a, x, y, n)
+        print("Result:", result)
+    except ValueError as e:
+        print("Error:", e)

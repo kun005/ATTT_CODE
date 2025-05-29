@@ -32,7 +32,7 @@ def main():
             print(f"Lỗi: Số lượng phần tử không khớp với N (N={N})")
             return
 
-        if any(x <= 0 for x in nums):
+        if any(x <= 0 for x in nums): #kiểm tra xem có tồn tại ptu tm đk 
             print("Lỗi: Tất cả các phần tử trong mảng phải là số nguyên dương.")
             return
 
