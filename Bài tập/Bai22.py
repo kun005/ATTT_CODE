@@ -20,7 +20,7 @@ def Boier_moore(txt, pat):
     txt_upper = txt.upper()
     pat_upper = pat.upper()
     
-    bc_table = last_occur(txt, pat) #cho biết vị trí cuối cùng mỗi ký tự xuất hiện trong pattern
+    bc_table = last_occur(pat) #cho biết vị trí cuối cùng mỗi ký tự xuất hiện trong pattern
 
     res = []
     s = 0 #tạo vị trí bắt đầu so khớp trong text 
@@ -29,7 +29,7 @@ def Boier_moore(txt, pat):
         while j >= 0 and pat_upper[j] == txt_upper[s + j]:
             j -= 1
         
-        if j < 0: #toàn bộ p khớp tại vt s
+        if j <= 0: #toàn bộ p khớp tại vt s
             res.append(s + 1)
             if s + m < n: 
                 next_char = txt_upper[s + m] #ký tự trong chuỗi text đứng ngay sau đoạn pattern vừa khớp hoàn toàn tại vị trí s
