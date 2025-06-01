@@ -59,6 +59,16 @@
   "python.analysis.extraPaths": [
     "./Thuật toán/Chuong2",
     "./TT/Chuong2",
-    "./TT/Chuong1"
-  ]
+    "./TT/Chuong1",
+    "./TT/Chuong3"
+  ],
+  "python.testing.unittestArgs": [
+    "-v",
+    "-s",
+    "./Bài tập",
+    "-p",
+    "*test.py"
+  ],
+  "python.testing.pytestEnabled": false,
+  "python.testing.unittestEnabled": true
 }

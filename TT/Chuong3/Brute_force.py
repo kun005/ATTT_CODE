@@ -15,11 +15,12 @@ def Vet_can(T, P):
 
 
 
-if __name__ == "__main__": 
-    T = input("Nhập chuỗi văn bản (T): ")
-    P = input("Nhập chuỗi mẫu (P): ")
-    result = Vet_can(T, P)
-    if result != -1:
-        print(f"Mẫu '{P}' xuất hiện tại vị trí: {result}")
-    else:
-        print(f"Mẫu '{P}' không được tìm thấy trong chuỗi văn bản.")
+# if __name__ == "__main__": 
+#     T = input("Nhập chuỗi văn bản (T): ")
+#     P = input("Nhập chuỗi mẫu (P): ")
+#     result = Vet_can(T, P)
+#     if result != -1:
+#         print(f"Mẫu '{P}' xuất hiện tại vị trí: {result}")
+#     else:
+#         print (-1)
+        
