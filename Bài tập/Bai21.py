@@ -14,7 +14,7 @@ def sovle(A, B):
     #check xem B có phải chuỗi con?
     if Vet_can(Kq_A, B) != -1:
         return count
-
+    
     Kq_A += A
     count += 1
     #xử lý TH B bắt đầu ở cuối lần lặp thứ count, và kthúc ở đầu lần lặp thứ count + 1

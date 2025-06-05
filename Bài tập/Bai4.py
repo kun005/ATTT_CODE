@@ -1,11 +1,5 @@
 
 
-#ME: Modular Exponentiation (tính lũy thừa theo modulo)
-# dựa vào định lý Fermat, nếu p là số nguyên tố và a là số nguyên không chia hết cho p thì a^(p-1) ≡ 1 (mod p)
-# và giải thuật chia để trị 
-
-#from ast import While
-
 #Bình phương có lặp (a^b mod m)
 def ME(a, b, m): #a là cơ số, b là số mũ, m là số chia
     if b == 0:

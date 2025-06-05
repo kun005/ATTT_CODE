@@ -2,10 +2,22 @@
 #Nếu x2 =x1, y 2 = -y1 thì P + Q = O(0,0)
 #Ngược lại P + Q = (x3, y3) 
 #Các phép tính đều được tính trên modulo p, p là số nguyên tố.
+def Invert_Fp(a,p):
+    u = a 
+    v = p
+    x1,x2 = 1, 0
+    while u != 1:
+        q = int(v/u)
+        r = v - q*u
+        x = x2 - q*x1
+        v = u
+        u = r
+        x2 = x1
+        x1 = x
+    if x1 < 0:
+        return x1 + p
+    return x1 % p
 
-import sys
-sys.path.insert(0, './TT/Chuong1')
-import TT8_C1
 
 def add_points(P, Q, a, b, p):
     x1, y1 = P
@@ -19,7 +31,7 @@ def add_points(P, Q, a, b, p):
         tu = (y2 - y1) % p
         mau = (x2 - x1) % p 
 
-    inv_mau =TT8_C1.Invert_Fp(mau, p)
+    inv_mau = Invert_Fp(mau, p)
     y = (tu * inv_mau) % p 
     
     x3 = (y * y - x1 - x2) % p 

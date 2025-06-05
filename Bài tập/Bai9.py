@@ -1,5 +1,5 @@
 
-import math 
+
 
 def extended_gcd(a, b):
     if b == 0: return a, 1, 0
@@ -25,17 +25,17 @@ def modular_ex(a, b, m):
     return res
 def nto(n):
     if n < 2:
-        return 0
-    for i in range(2, int(math.sqrt(n)) + 1):
-        if n % i == 0:
-            return 0
-        return 1
+         return 0
+    for i in range (2, int(n**0.5) + 1):
+         if n % i == 0:
+             return 0
+         return 1
     
 if __name__ == "__main__":
     p = int(input("Nhap so nguyen to p: "))
     g = int(input("Nhap phan tu nguyen thuy g: "))
     x = int(input("Nhap khoa rieng x: "))
-    a, b = map(int, input("Nhap ban ma cua m, (a,b): ").strip().split())
+    a, b = map(int, input("Nhap ban ma cua m, (a,b): ").split())
     if not nto(p) or x < 1 or x > p - 2:
         print("Du lieu khong hop le")
         exit()

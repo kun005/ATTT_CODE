@@ -1,7 +1,14 @@
         
     
 from TT3_C2 import modular_ex
-from random import randint
+def random(min, max, seed):
+    a = 1664525
+    c = 1013904223
+    m = 2**32
+    
+    seed = (a * seed + c) % m
+    rand = seed % (max - min + 1) + min
+    return rand
 
 def Tach(n):
     cout = 0
@@ -19,7 +26,8 @@ def miller_rabin(n, t=10):
         return False
     s, r = Tach(n - 1)
     for _ in range(t):
-        a = randint(2, n - 2)
+        seed = 12345
+        a = random(2, n - 2, seed)
         y = modular_ex(a, r, n)
         if y != 1 and y != n - 1:
             j = 1

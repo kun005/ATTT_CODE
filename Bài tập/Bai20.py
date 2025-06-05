@@ -11,27 +11,19 @@ def Tach(n):
 
 def miller_rabin(n, r, a, j_max):
     s, r = Tach(n - 1)  # Sử dụng hàm Tach để tách n - 1 thành 2^s * r
-
     y = modular_ex(a, r, n)
-
     if j_max > s - 1:
         return "Too many steps"
-
     if y == 1 or y == n - 1:
         return y
-
     for j in range(1, s):
         y = modular_ex(y, 2, n)
-
         if y == 1:
             return y
-
         if j == j_max:
             return y
-
         if y == n - 1:
             return y
-
     return None
 
 def main():
@@ -42,6 +34,5 @@ def main():
 
     result = miller_rabin(n, r, a, j_max)
     print(result)
-
 if __name__ == "__main__":
     main()

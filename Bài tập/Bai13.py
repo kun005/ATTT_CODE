@@ -54,17 +54,35 @@ import TT8_C1
 # cần khoảng log2(n) bước, thay vì n bước cộng điểm 
 
  # C2 dùng vòng lặp để cộng dồn điểm 
+def Invert_Fp(a,p):
+    u = a 
+    v = p
+    x1,x2 = 1, 0
+    while u != 1:
+        q = int(v/u)
+        r = v - q*u
+        x = x2 - q*x1
+        v = u
+        u = r
+        x2 = x1
+        x1 = x
+    if x1 < 0:
+        return x1 + p
+    return x1 % p
+
+ 
+ 
 def ecc_key(p, a, x1, y1, n):
     def add_point(x1, y1, x2, y2):
         if x1 == x2 and y1 == y2:
             mau = 2 * y1 % p
             if mau == 0:
-                raise ValueError("Lỗi: 2 * y1 is zero modulo p.")
-            return (3 * x1**2 + a) * TT8_C1.Invert_Fp(mau, p) % p
+                raise ValueError("Lỗi")
+            return (3 * x1**2 + a) * Invert_Fp(mau, p) % p
         else:
             mau = (x2 - x1) % p
             if mau == 0:
-                raise ValueError("Lỗi: x2 - x1 is zero modulo p.")
+                raise ValueError("Lỗi")
             return (y2 - y1) * TT8_C1.Invert_Fp(mau, p) % p
     # khởi tạo điểm đầu tiên 
     x2, y2 = x1, y1

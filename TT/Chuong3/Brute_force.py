@@ -8,7 +8,7 @@ def Vet_can(T, P):
             if T[i + j] != P[j]:
                 match = 0
                 break  # không khớp -> dừng kiểm tra và thử vị trí tiếp theo
-        if match == 1:
+        if match:
             return i  # trả về vị trí đầu tiên tìm thấy P trong T
 
     return -1  

@@ -1,13 +1,19 @@
-import sys
-sys.path.insert(0, './TT/Chuong2')
-import TT3_C2
-import random
-
+def modular_ex(a, b, m):
+    if m == 1:
+        return 0
+    res = 1
+    a = a % m # rút gọn cơ số trước nếu lớn hơn m
+    while b > 0:
+        if b % 2 == 1:
+            res = (res * a) % m 
+        a = (a * a) % m #bình phương cơ số
+        b //= 2 #dịch bit sang phải
+    return res
 
 def fermat(n, t, a_list):
     for i in range(t):
         a = a_list[i]
-        r = TT3_C2.modular_ex(a, n - 1, n)
+        r = modular_ex(a, n - 1, n)
         if r != 1:
             return i + 1 # trả về vị trí phát hiện hợp số
     return -1  
