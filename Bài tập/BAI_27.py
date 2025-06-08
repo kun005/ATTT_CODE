@@ -27,7 +27,7 @@ def Boier_moore(X, Y):
             j -= 1
         
         if j < 0: #toàn bộ p khớp tại vt s
-            res.append(s + 1)
+            res += [s + 1]
             if s + m < n: 
                 next_char = X[s + m] #ký tự trong chuỗi text đứng ngay sau đoạn vừa khớp hoàn toàn tại vị trí s
                 if next_char in bc_table:
