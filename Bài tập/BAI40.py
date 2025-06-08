@@ -1,3 +1,4 @@
+
 def check(s1, s2):
     m = len(s1)
     n = len(s2)
@@ -19,16 +20,16 @@ words = [input() for _ in range(N)]
 
 res = []
 for i in range(N):
-    #p: chuoi ktra
-    p = words[i]
+    # chuoi ktra
+    c_ktra = words[i]
     for j in range(N):
         if i == j:
             continue
-        #t: chuoi so sanh
-        t = words[j]
+        #: chuoi so sanh
+        c_sosanh = words[j]
         
-        if check(p, t):
-            res += [p]
+        if check(c_ktra, c_sosanh):
+            res += [c_ktra]
             break
 if not res:
     print("None")
