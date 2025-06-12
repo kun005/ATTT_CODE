@@ -11,7 +11,7 @@ def modular_ex(a, b, m):
     return res
 
 
-p, q = map(int, input("Nhap p va q: ").strip().split())
+p, q = map(int, input("Nhap p va q: ").split())
 m = int(input("Nhap m: "))
 if (p % 4 == 3) and (q % 4 == 3):
     n = p * q

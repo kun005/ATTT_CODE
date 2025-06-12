@@ -1,4 +1,4 @@
-
+# LCG (Linear Congruential Generator): X(n + 1) = (a * Xn + c) mod m
 def rand_(min, max, seed):
     a = 1664525 #hệ số nhân
     c = 1013904223 #hằng số cộng
@@ -7,7 +7,6 @@ def rand_(min, max, seed):
     seed = (a * seed + c) % m
     rand = seed % (max - min + 1) + min
     return rand
-
 
 def modular_ex(a, b, m):
     if m == 1:

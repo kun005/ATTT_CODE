@@ -1,7 +1,5 @@
 
-import sys
-sys.path.insert(0, './TT/Chuong2')
-import TT3_C2
+
 # LCG (Linear Congruential Generator): X(n + 1) = (a * Xn + c) mod m
 def random(min, max, seed):
     a = 1664525
@@ -12,7 +10,17 @@ def random(min, max, seed):
     rand = seed % (max - min + 1) + min
     return rand
 
-
+def modular_ex(a, b, m):
+    if m == 1:
+        return 0
+    res = 1
+    a = a % m # rút gọn cơ số trước nếu lớn hơn m
+    while b > 0:
+        if b % 2 == 1:
+            res = (res * a) % m 
+        a = (a * a) % m 
+        b //= 2 #dịch bit sang phải
+    return res
 
 def check_nto(n, t = 5):
     if n <= 1:
@@ -25,7 +33,7 @@ def check_nto(n, t = 5):
     for _ in range(t):
         seed = 123456
         a = random(2, n - 2, seed)
-        if TT3_C2.modular_ex(a, n - 1, n) != 1:
+        if modular_ex(a, n - 1, n) != 1:
             return False
     return True
 

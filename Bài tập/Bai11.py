@@ -18,8 +18,6 @@ def nto(n):
              return 0
          return 1
 
-
-# Nhập dữ liệu từ bàn phím
 p = int(input("Nhập số nguyên tố p: "))
 q = int(input("Nhập số nguyên tố q: "))
 m = int(input("Nhập thông điệp cần ký m: "))
@@ -29,11 +27,6 @@ if not nto(p) or not nto(q):
     print("p hoặc q không phải là số nguyên tố.")
     exit()
 
-# Tính n = p * q
 n = p * q
-
-# Tạo chữ ký s = m^d mod n
 s = modular_ex(m, d, n)
-
-# In kết quả
 print("Chữ ký số là:", s)

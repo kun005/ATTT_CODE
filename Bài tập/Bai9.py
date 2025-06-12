@@ -1,19 +1,21 @@
 
 
 
-def extended_gcd(a, b):
-    if b == 0: return a, 1, 0
-    else:
-        gcd, x1, y1 = extended_gcd(b, a % b)
-        x = y1
-        y = x1 - (a // b) * y1
-        return gcd, x, y
-def mod_inverse(a, p):
-    gcd, x, y = extended_gcd(a,p)
-    if gcd != 1:
-        raise ValueError("nghich dao khong ton tai")
-    else:
-        return x % p
+def Invert_Fp(a,p):
+    u = a 
+    v = p
+    x1,x2 = 1, 0
+    while u != 1:
+        q = int(v/u)
+        r = v - q*u
+        x = x2 - q*x1
+        v = u
+        u = r
+        x2 = x1
+        x1 = x
+    if x1 < 0:
+        return x1 + p
+    return x1 % p
     
 def modular_ex(a, b, m):
     if b == 0:
@@ -41,8 +43,7 @@ if __name__ == "__main__":
         exit()
     
     s = modular_ex(a, x, p)
-    print("Gia tri cua s la:", s)
-    s1= mod_inverse(s, p)
+    s1 = Invert_Fp(s, p)
     print("Nghich dao cua (a^x) mod p la :", s1)
     m = (b * s1) % p
     print("Gia tri cua m la:", m)

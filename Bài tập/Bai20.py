@@ -1,7 +1,23 @@
-import sys
-sys.path.insert(0, './TT/Chuong2')
-from TT3_C2 import modular_ex
+# def random(min, max, seed):
+#     a = 1664525
+#     c = 1013904223
+#     m = 2**32
+    
+#     seed = (a * seed + c) % m
+#     rand = seed % (max - min + 1) + min
+#     return rand
 
+def modular_ex(a, b, m):
+    if m == 1:
+        return 0
+    res = 1
+    a = a % m # rút gọn cơ số trước nếu lớn hơn m
+    while b > 0:
+        if b % 2 == 1:
+            res = (res * a) % m 
+        a = (a * a) % m #bình phương cơ số
+        b //= 2 #dịch sang phải
+    return res
 def Tach(n):
     cout = 0
     while n % 2 == 0:

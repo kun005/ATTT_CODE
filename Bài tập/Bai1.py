@@ -39,7 +39,6 @@ n = p * q
 phi = (p - 1) * (q - 1)
 if e <= 1 or e >= phi or UCLN(e, phi) != 1:
     print("Lỗi: Không thỏa mã điều kiện")
-    exit()
 d = Invert_Fp(e, phi)
 
 print("Số nguyên n là:", n)

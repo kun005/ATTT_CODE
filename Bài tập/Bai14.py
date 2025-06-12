@@ -35,7 +35,6 @@ def nto(n):
             return 0
          return 1
 
-
 p =int(input("Nhap so nguyen to p: "))
 A = int(input("Nhap ptu nguyen thuy A: "))
 a = int(input("Nhap so nguyen a: "))

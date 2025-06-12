@@ -1,4 +1,16 @@
-from TT.Chuong3.Brute_force import Vet_can
+def Vet_can(T, P):
+    n = len(T)  
+    m = len(P)  
+
+    for i in range(n - m + 1):  
+        match = 1
+        for j in range(m):  # kiểm tra từng ký tự của P với T tại vị trí i
+            if T[i + j] != P[j]:
+                match = 0
+                break  # không khớp -> dừng kiểm tra và thử vị trí tiếp theo
+        if match:
+            return i  # trả về vị trí đầu tiên tìm thấy P trong T
+    return -1  
 
 def sovle(A, B):
     n = len(A)
@@ -20,7 +32,6 @@ def sovle(A, B):
     #xử lý TH B bắt đầu ở cuối lần lặp thứ count, và kthúc ở đầu lần lặp thứ count + 1
     if Vet_can(Kq_A, B) != -1:
         return count
-
     return -1
 
 if __name__ == "__main__":

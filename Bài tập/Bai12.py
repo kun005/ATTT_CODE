@@ -18,7 +18,6 @@ def Invert_Fp(a,p):
         return x1 + p
     return x1 % p
 
-
 def add_points(P, Q, a, b, p):
     x1, y1 = P
     x2, y2 = Q
@@ -37,7 +36,6 @@ def add_points(P, Q, a, b, p):
     x3 = (y * y - x1 - x2) % p 
     y3 = (y * (x1 - x3) - y1) % p 
     return (x3, y3)
-
 
 if __name__ == "__main__":
     p = int(input("Nhập số nguyên tố p: "))

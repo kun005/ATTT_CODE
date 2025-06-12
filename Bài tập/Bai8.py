@@ -22,7 +22,6 @@ y = int(input("Nhap khoa cong khai y: "))
 m = int(input("Nhap thong diep m: "))
 if not nto(p) or k < 1 or k > p - 2:
     print("Du lieu khong hop le")
-    exit()
 
 #tinh toan
 a = modular_ex(g, k, p)
